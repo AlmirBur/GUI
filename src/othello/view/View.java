@@ -126,7 +126,7 @@ public class View extends Application {
     }
 
     private void repaintField() {
-        chips.getChildren().remove(0, chips.getChildren().size());
+        chips.getChildren().clear();
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (field.getCell(i, j).getValue() == null) continue;
@@ -145,7 +145,7 @@ public class View extends Application {
     }
 
     private void showHints() {
-        hints.getChildren().remove(0, hints.getChildren().size());
+        hints.getChildren().clear();
         boolean[][] emptyCells = field.getFreeCells(player);
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
