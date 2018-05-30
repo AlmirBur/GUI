@@ -198,7 +198,6 @@ public class View extends Application {
                     }
                 }
                 situation(message);
-                restart();
             } else{
                 player.changePlayer();
                 player.setIsChanged(true);

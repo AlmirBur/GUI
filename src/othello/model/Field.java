@@ -66,9 +66,8 @@ public class Field {
             notX1 = X1 ^ 1;
             notX2 = X2 ^ 1;
             notX3 = X3 ^ 1;
-            dx = -1 * (notX1 * notX3 | notX1 * notX2) | X1 * X3 | X1 * X2;
-            dy = -1 * (notX1 * notX2 * notX3 | notX1 * X2 * X3 | X1 * notX2 * X3)
-                    + (notX1 * X2 * notX3 | X1 * notX2 * notX3 | X1 * X2 * X3);
+            dx = (X1 * (X2 | X3)) - (notX1 * (notX2 | notX3));
+            dy = (notX1 * X2 * notX3 | X1 * ((X2 ^ X3) ^ 1)) - (notX1 * ((X2 ^ X3) ^ 1) | X1 * notX2 * X3);
             i = x + dx;
             j = y + dy;
             while (i >= 0 && i < 8 && j >= 0 && j < 8) {
@@ -110,9 +109,8 @@ public class Field {
             notX1 = X1 ^ 1;
             notX2 = X2 ^ 1;
             notX3 = X3 ^ 1;
-            dx = -1 * (notX1 * notX3 | notX1 * notX2) | X1 * X3 | X1 * X2;
-            dy = -1 * (notX1 * notX2 * notX3 | notX1 * X2 * X3 | X1 * notX2 * X3)
-                    + (notX1 * X2 * notX3 | X1 * notX2 * notX3 | X1 * X2 * X3);
+            dx = (X1 * (X2 | X3)) - (notX1 * (notX2 | notX3));
+            dy = (notX1 * X2 * notX3 | X1 * ((X2 ^ X3) ^ 1)) - (notX1 * ((X2 ^ X3) ^ 1) | X1 * notX2 * X3);
             i = x + dx;
             j = y + dy;
             while (cells[i][j].getValue() != player.getChip()) {
